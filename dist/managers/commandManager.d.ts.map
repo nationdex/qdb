@@ -1,0 +1,1 @@
+{"version":3,"file":"commandManager.d.ts","sourceRoot":"","sources":["../../src/managers/commandManager.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,kBAAkB,EAAE,MAAM,uBAAuB,CAAC;AAC3D,OAAO,KAAK,EAAE,SAAS,EAAE,MAAM,UAAU,CAAC;AAE1C,qBAAa,cAAe,SAAQ,kBAAkB,CAAC,SAAS,CAAC;IAC7D,WAAW,SAAqB;CACnC"}
