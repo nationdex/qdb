@@ -80,6 +80,10 @@ export const {
     writeRecord,
     moveRecord,
     putRecord,
+    variableKey,
+    getVariable,
+    setVariable,
+    deleteVariable,
 
     createBackup,
     removeBackup,

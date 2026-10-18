@@ -126,6 +126,25 @@ export declare function writeRecord(db: RootDatabase<RecordData, string>, type: 
  */
 export declare function putRecord(type: string, key: string, data: RecordData | undefined): Promise<boolean>;
 /**
+ * Key of a record for the ForgeDB-style variable functions. `global` always
+ * uses the `custom` record, the same one `transferDatabase` fills.
+ */
+export declare function variableKey(ctx: Context, type: string, id?: string | null, guild?: string | null): string;
+/**
+ * Reads a single variable of a record, opening the database on first use.
+ * Falls back to the QuorielEdge structure default, then to `fallback`.
+ */
+export declare function getVariable(type: string, key: string, name: string, fallback?: string | null): any;
+/**
+ * Stores a single variable of a record. Text that is a number, boolean or
+ * JSON is stored as that value, anything else stays a string.
+ */
+export declare function setVariable(type: string, key: string, name: string, value: string): Promise<void>;
+/**
+ * Removes a single variable, deleting the record once it is empty.
+ */
+export declare function deleteVariable(type: string, key: string, name: string): Promise<void>;
+/**
  * Moves a record to another key, deleting the source unless `deleteSource` is
  * `false`. Returns `false` when the source is not stored.
  */

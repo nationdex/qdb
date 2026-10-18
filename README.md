@@ -57,6 +57,7 @@ fully supported.
 - Configuring the database to fit your bot's needs [View documentation](https://github.com/quoriel/db/blob/main/docs/CONFIG.md)
 - Setting default values for missing data via schemas [View documentation](https://github.com/quoriel/edge/blob/main/docs/DEFAULTS.md)
 - Migrating databases created with versions below **2.0.0** [View documentation](https://github.com/quoriel/db/blob/main/docs/MIGRATION.md)
+- Coming from **ForgeDB**? Use `$getUserVar`, `$setUserVar` and the rest the same way [View documentation](docs/VARIABLES.md)
 - Interacting with the database using direct **JS** functions [View documentation](https://github.com/quoriel/db/blob/main/docs/FUNCTIONS.md)
 - Transferring data from **ForgeDB** to **QuorielDB** [View documentation](https://github.com/quoriel/db/blob/main/docs/TRANSFER.md)
 - Registering custom database types for extensions [View documentation](https://github.com/quoriel/db/blob/main/docs/REGISTER.md)

@@ -485,6 +485,76 @@ export async function putRecord(type: string, key: string, data: RecordData | un
     return true;
 }
 
+const unsafeFields = new Set(["__proto__", "constructor", "prototype"]);
+
+// ForgeDB stored every value as text; keep numbers, booleans and JSON as real values when they read back identically.
+function parseValue(raw: string): unknown {
+    const text = raw.trim();
+    if (!text) return raw;
+    try {
+        const parsed = JSON.parse(text);
+        if (parsed !== null && typeof parsed === "object") return parsed;
+        if (String(parsed) === raw && typeof parsed !== "string") return parsed;
+    } catch {
+        // plain text
+    }
+    return raw;
+}
+
+function ensureOpen(type: string): RootDatabase<RecordData, string> {
+    const db = databases.get(type);
+    if (db) return db;
+    getSchema(type);
+    return openDatabase(type);
+}
+
+/**
+ * Key of a record for the ForgeDB-style variable functions. `global` always
+ * uses the `custom` record, the same one `transferDatabase` fills.
+ */
+export function variableKey(ctx: Context, type: string, id?: string | null, guild?: string | null): string {
+    if (type === "global") return "custom";
+    return makeKey(ctx, type, id, guild);
+}
+
+function checkField(name: string): void {
+    if (!name || unsafeFields.has(name)) throw new DatabaseError(`Invalid variable name "${name}"`);
+}
+
+/**
+ * Reads a single variable of a record, opening the database on first use.
+ * Falls back to the QuorielEdge structure default, then to `fallback`.
+ */
+export function getVariable(type: string, key: string, name: string, fallback?: string | null): any {
+    checkField(name);
+    ensureOpen(type);
+    const value = valueRecord(type, key, name);
+    return value === undefined || value === null ? (fallback ?? "") : value;
+}
+
+/**
+ * Stores a single variable of a record. Text that is a number, boolean or
+ * JSON is stored as that value, anything else stays a string.
+ */
+export async function setVariable(type: string, key: string, name: string, value: string): Promise<void> {
+    checkField(name);
+    const db = ensureOpen(type);
+    await writeRecord(db, type, key, { ...db.get(key), [name]: parseValue(value) });
+}
+
+/**
+ * Removes a single variable, deleting the record once it is empty.
+ */
+export async function deleteVariable(type: string, key: string, name: string): Promise<void> {
+    checkField(name);
+    const db = ensureOpen(type);
+    const record = db.get(key);
+    if (record === undefined || !(name in record)) return;
+    const { [name]: _removed, ...rest } = record;
+    if (Object.keys(rest).length) await writeRecord(db, type, key, rest);
+    else await deleteRecord(db, type, key);
+}
+
 /**
  * Moves a record to another key, deleting the source unless `deleteSource` is
  * `false`. Returns `false` when the source is not stored.
