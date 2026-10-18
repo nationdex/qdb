@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { pingDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$pingDB",
     description: "Checks the database response time",
     version: "2.0.0",

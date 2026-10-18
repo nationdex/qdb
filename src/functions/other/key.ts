@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { makeKey } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$key",
     description: "Builds a composite key",
     version: "2.0.0",

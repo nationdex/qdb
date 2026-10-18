@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { prefetchDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$prefetchDB",
     description: "Prefetches database entries into memory to speed up future access",
     version: "2.0.0",

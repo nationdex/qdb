@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { removeBackup } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$removeBackup",
     description: "Removes a backup of the specified data type",
     version: "1.7.0",

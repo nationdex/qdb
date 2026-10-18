@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { activeDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$activeDB",
     description: "Returns a list of active databases",
     version: "3.0.0",

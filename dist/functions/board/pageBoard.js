@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
-exports.default = new forgescript_1.NativeFunction({
+const define_1 = require("../../define");
+exports.default = (0, define_1.defineFunction)({
     name: "$pageBoard",
     description: "Loads a paginated leaderboard slice into the environment variable",
     version: "3.0.0",

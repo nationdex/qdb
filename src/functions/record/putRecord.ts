@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { autoKey, putRecord } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$putRecord",
     description: "Sets new data for the key",
     version: "3.0.0",

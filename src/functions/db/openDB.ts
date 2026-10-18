@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { openDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$openDB",
     description: "Opens a connection to one or more databases",
     version: "3.0.0",

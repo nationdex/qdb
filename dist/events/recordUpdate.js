@@ -11,7 +11,7 @@ exports.default = new eventHandler_1.EventHandler({
         const commands = this.getExtension(main_1.QuorielDB, true).commands.get("recordUpdate");
         if (commands) {
             for (const command of commands) {
-                forgescript_1.Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code, environment: environment });
+                forgescript_1.Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code, environment: environment }).catch((error) => forgescript_1.Logger.error(error));
             }
         }
     }

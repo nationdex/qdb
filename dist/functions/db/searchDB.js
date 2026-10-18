@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
+const define_1 = require("../../define");
 const db_1 = require("../../db");
 const valueType = {
     string: "string",
@@ -9,7 +10,7 @@ const valueType = {
     object: "object",
     array: "array"
 };
-exports.default = new forgescript_1.NativeFunction({
+exports.default = (0, define_1.defineFunction)({
     name: "$searchDB",
     description: "Searches the database with various filters",
     version: "3.0.0",

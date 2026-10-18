@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
-exports.default = new forgescript_1.NativeFunction({
+const define_1 = require("../../define");
+exports.default = (0, define_1.defineFunction)({
     name: "$nearbyBoard",
     description: "Shows the count of competitors before and after the entity in the leaderboard",
     version: "3.0.0",

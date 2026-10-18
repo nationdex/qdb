@@ -67,7 +67,13 @@ class QuorielDB extends forgescript_1.ForgeExtension {
             forgescript_1.EventManager.load("QuorielDBEvents", __dirname + "/events");
             client.events.load("QuorielDBEvents", this.options.events);
         }
-        await initDB(this.options?.path);
+        try {
+            await initDB(this.options?.path);
+        }
+        catch (error) {
+            forgescript_1.Logger.error(`[QuorielDB] Failed to initialize the database folder: ${error.message}`);
+            throw error;
+        }
         if (this.options?.events?.length)
             setupEvents(this.emitter, this.options.events);
     }

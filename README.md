@@ -3,13 +3,13 @@ An intuitive and high-performance interface for working with databases in **Forg
 
 ## Installation
 ```
-npm i @quoriel/db lmdb
+npm i @nationdex/qdb lmdb
 ```
 
 ## Connection
 ```js
 const { ForgeClient } = require("@tryforge/forgescript");
-const { QuorielDB } = require("@quoriel/db");
+const { QuorielDB } = require("@nationdex/qdb");
 
 const db = new QuorielDB({
     events: [
@@ -34,7 +34,7 @@ client.login("...");
 The same works from TypeScript, with full type information out of the box:
 ```ts
 import { ForgeClient } from "@tryforge/forgescript";
-import { QuorielDB } from "@quoriel/db";
+import { QuorielDB } from "@nationdex/qdb";
 
 const db = new QuorielDB({
     events: ["databaseConnect", "recordUpdate", "recordRemove"]

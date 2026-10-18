@@ -1,6 +1,7 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$positionBoard",
     description: "Returns the position of the specified entity in the ranked list",
     version: "3.0.0",

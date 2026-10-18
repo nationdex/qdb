@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { rangeDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$rangeDB",
     description: "Retrieves all records from the database",
     version: "2.0.0",

@@ -21,7 +21,7 @@ Ensure the **ForgeDB** and **QuorielDB** extensions are initialized in the clien
 ```js
 const { ForgeClient } = require("@tryforge/forgescript");
 const { ForgeDB } = require("@tryforge/forge.db")
-const { QuorielDB, transferDatabase } = require("@quoriel/db");
+const { QuorielDB, transferDatabase } = require("@nationdex/qdb");
 
 const client = new ForgeClient({
     extensions: [
