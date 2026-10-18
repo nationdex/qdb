@@ -88,3 +88,5 @@ export const {
     types,
     config
 } = functions;
+
+export type * from "./types";
