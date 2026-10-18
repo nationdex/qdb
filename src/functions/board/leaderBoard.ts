@@ -1,4 +1,5 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { leaderBoard } from "../../db";
 
 const sortType = {
@@ -6,7 +7,7 @@ const sortType = {
     desc: "desc"
 } as const;
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$leaderBoard",
     description: "Loads the entire sorted ranked list into the environment variable",
     version: "3.0.0",

@@ -2,7 +2,7 @@
 This section describes all functions for direct interaction with the **QuorielDB** database. These functions allow you to manage databases, work with records, create backups, and perform other operations directly from **JavaScript** code.
 
 ```js
-const { leaderBoard, reloadDB, activeDB, openDB } = require("@quoriel/db");
+const { leaderBoard, reloadDB, activeDB, openDB } = require("@nationdex/qdb");
 
 (async () => {
     // Reloads the database configuration from files.

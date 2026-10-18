@@ -13,7 +13,7 @@ This function allows you to rebuild all databases with new flags.
 
 ## Usage
 ```js
-const { migrationDatabases } = require("@quoriel/db");
+const { migrationDatabases } = require("@nationdex/qdb");
 
 // Migration with old default flags
 (async () => {

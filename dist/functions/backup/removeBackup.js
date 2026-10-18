@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
+const define_1 = require("../../define");
 const db_1 = require("../../db");
-exports.default = new forgescript_1.NativeFunction({
+exports.default = (0, define_1.defineFunction)({
     name: "$removeBackup",
     description: "Removes a backup of the specified data type",
     version: "1.7.0",

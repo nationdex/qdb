@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { autoKey, getRecord } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$getRecord",
     description: "Saves record data into an environment variable",
     version: "3.0.0",

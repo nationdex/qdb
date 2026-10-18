@@ -1,4 +1,4 @@
-import { Interpreter } from "@tryforge/forgescript";
+import { Interpreter, Logger } from "@tryforge/forgescript";
 import { EventHandler } from "../managers/eventHandler";
 import { QuorielDB } from "../main";
 
@@ -10,7 +10,7 @@ export default new EventHandler({
         const commands = this.getExtension(QuorielDB, true).commands.get("databaseConnect");
         if (commands) {
             for (const command of commands) {
-                Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code });
+                Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code }).catch((error) => Logger.error(error));
             }
         }
     }

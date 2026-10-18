@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { autoKey, existsRecord } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$existsRecord",
     description: "Checks if a record exists for the key",
     version: "2.0.0",

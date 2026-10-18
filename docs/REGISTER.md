@@ -9,7 +9,7 @@ If you only build bots on top of **QuorielDB**, the types defined in `config.jso
 If the type was already registered (by `config.json` or by another extension), the existing schema is kept as-is and the already-open database handle is returned - `registerDB` never overwrites a schema or reopens a database that already exists.
 
 ```js
-const { registerDB } = require("@quoriel/db");
+const { registerDB } = require("@nationdex/qdb");
 
 const db = registerDB("myExtensionType", {
     type: null,

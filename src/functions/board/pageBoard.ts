@@ -1,6 +1,7 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$pageBoard",
     description: "Loads a paginated leaderboard slice into the environment variable",
     version: "3.0.0",

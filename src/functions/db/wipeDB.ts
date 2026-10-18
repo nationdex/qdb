@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { wipeDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$wipeDB",
     description: "Deletes one or more databases",
     version: "2.0.0",

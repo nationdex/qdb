@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { keysDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$keysDB",
     description: "Retrieves all keys from the database",
     version: "3.0.0",

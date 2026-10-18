@@ -1,7 +1,7 @@
-import { NativeFunction } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { reloadDB } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$reloadDB",
     description: "Reloads database configuration from file",
     version: "3.0.0",

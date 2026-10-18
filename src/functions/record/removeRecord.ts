@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { autoKey, removeRecord } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$removeRecord",
     description: "Deletes the record of the specified key",
     version: "3.0.0",

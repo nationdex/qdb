@@ -1,4 +1,5 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { searchDB } from "../../db";
 
 const valueType = {
@@ -9,7 +10,7 @@ const valueType = {
     array: "array"
 } as const;
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$searchDB",
     description: "Searches the database with various filters",
     version: "3.0.0",

@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { autoKey, hold } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$hold",
     description: "Applies a hold timer to prevent repeated actions",
     version: "3.0.0",

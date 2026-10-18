@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { createBackup } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$createBackup",
     description: "Creates a backup of the specified database",
     version: "2.0.0",

@@ -33,7 +33,7 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.config = exports.types = exports.restoreBackup = exports.removeBackup = exports.createBackup = exports.putRecord = exports.moveRecord = exports.writeRecord = exports.removeRecord = exports.deleteRecord = exports.existsRecord = exports.valueRecord = exports.readRecord = exports.getRecord = exports.prefetchDB = exports.registerDB = exports.searchDB = exports.reloadDB = exports.rangeDB = exports.wipeDB = exports.pingDB = exports.openDB = exports.keysDB = exports.closeDB = exports.activeDB = exports.leaderBoard = exports.transferDatabase = exports.migrationDatabases = exports.autoKey = exports.formatKey = exports.makeKey = exports.hold = exports.QuorielDB = void 0;
+exports.config = exports.types = exports.restoreBackup = exports.removeBackup = exports.createBackup = exports.deleteVariable = exports.setVariable = exports.getVariable = exports.variableKey = exports.putRecord = exports.moveRecord = exports.writeRecord = exports.removeRecord = exports.deleteRecord = exports.existsRecord = exports.valueRecord = exports.readRecord = exports.getRecord = exports.prefetchDB = exports.registerDB = exports.searchDB = exports.reloadDB = exports.rangeDB = exports.wipeDB = exports.pingDB = exports.openDB = exports.keysDB = exports.closeDB = exports.activeDB = exports.leaderBoard = exports.transferDatabase = exports.migrationDatabases = exports.autoKey = exports.formatKey = exports.makeKey = exports.hold = exports.QuorielDB = void 0;
 const forgescript_1 = require("@tryforge/forgescript");
 const events_1 = require("@eolthar/events");
 const commandManager_1 = require("./managers/commandManager");
@@ -67,11 +67,17 @@ class QuorielDB extends forgescript_1.ForgeExtension {
             forgescript_1.EventManager.load("QuorielDBEvents", __dirname + "/events");
             client.events.load("QuorielDBEvents", this.options.events);
         }
-        await initDB(this.options?.path);
+        try {
+            await initDB(this.options?.path);
+        }
+        catch (error) {
+            forgescript_1.Logger.error(`[QuorielDB] Failed to initialize the database folder: ${error.message}`);
+            throw error;
+        }
         if (this.options?.events?.length)
             setupEvents(this.emitter, this.options.events);
     }
 }
 exports.QuorielDB = QuorielDB;
-exports.hold = functions.hold, exports.makeKey = functions.makeKey, exports.formatKey = functions.formatKey, exports.autoKey = functions.autoKey, exports.migrationDatabases = functions.migrationDatabases, exports.transferDatabase = functions.transferDatabase, exports.leaderBoard = functions.leaderBoard, exports.activeDB = functions.activeDB, exports.closeDB = functions.closeDB, exports.keysDB = functions.keysDB, exports.openDB = functions.openDB, exports.pingDB = functions.pingDB, exports.wipeDB = functions.wipeDB, exports.rangeDB = functions.rangeDB, exports.reloadDB = functions.reloadDB, exports.searchDB = functions.searchDB, exports.registerDB = functions.registerDB, exports.prefetchDB = functions.prefetchDB, exports.getRecord = functions.getRecord, exports.readRecord = functions.readRecord, exports.valueRecord = functions.valueRecord, exports.existsRecord = functions.existsRecord, exports.deleteRecord = functions.deleteRecord, exports.removeRecord = functions.removeRecord, exports.writeRecord = functions.writeRecord, exports.moveRecord = functions.moveRecord, exports.putRecord = functions.putRecord, exports.createBackup = functions.createBackup, exports.removeBackup = functions.removeBackup, exports.restoreBackup = functions.restoreBackup, exports.types = functions.types, exports.config = functions.config;
+exports.hold = functions.hold, exports.makeKey = functions.makeKey, exports.formatKey = functions.formatKey, exports.autoKey = functions.autoKey, exports.migrationDatabases = functions.migrationDatabases, exports.transferDatabase = functions.transferDatabase, exports.leaderBoard = functions.leaderBoard, exports.activeDB = functions.activeDB, exports.closeDB = functions.closeDB, exports.keysDB = functions.keysDB, exports.openDB = functions.openDB, exports.pingDB = functions.pingDB, exports.wipeDB = functions.wipeDB, exports.rangeDB = functions.rangeDB, exports.reloadDB = functions.reloadDB, exports.searchDB = functions.searchDB, exports.registerDB = functions.registerDB, exports.prefetchDB = functions.prefetchDB, exports.getRecord = functions.getRecord, exports.readRecord = functions.readRecord, exports.valueRecord = functions.valueRecord, exports.existsRecord = functions.existsRecord, exports.deleteRecord = functions.deleteRecord, exports.removeRecord = functions.removeRecord, exports.writeRecord = functions.writeRecord, exports.moveRecord = functions.moveRecord, exports.putRecord = functions.putRecord, exports.variableKey = functions.variableKey, exports.getVariable = functions.getVariable, exports.setVariable = functions.setVariable, exports.deleteVariable = functions.deleteVariable, exports.createBackup = functions.createBackup, exports.removeBackup = functions.removeBackup, exports.restoreBackup = functions.restoreBackup, exports.types = functions.types, exports.config = functions.config;
 //# sourceMappingURL=main.js.map

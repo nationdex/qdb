@@ -1,7 +1,8 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
+import { ArgType } from "@tryforge/forgescript";
+import { defineFunction } from "../../define";
 import { moveRecord } from "../../db";
 
-export default new NativeFunction({
+export default defineFunction({
     name: "$moveRecord",
     description: "Moves data from one record to another",
     version: "3.0.0",

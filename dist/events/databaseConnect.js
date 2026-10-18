@@ -11,7 +11,7 @@ exports.default = new eventHandler_1.EventHandler({
         const commands = this.getExtension(main_1.QuorielDB, true).commands.get("databaseConnect");
         if (commands) {
             for (const command of commands) {
-                forgescript_1.Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code });
+                forgescript_1.Interpreter.run({ obj: {}, client: this, command, data: command.compiled.code }).catch((error) => forgescript_1.Logger.error(error));
             }
         }
     }

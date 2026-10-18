@@ -1,4 +1,4 @@
-import { ForgeExtension, EventManager, ForgeClient } from "@tryforge/forgescript";
+import { ForgeExtension, EventManager, ForgeClient, Logger } from "@tryforge/forgescript";
 import { Emitter } from "@eolthar/events";
 import { CommandManager } from "./managers/commandManager";
 import * as db from "./db";
@@ -39,7 +39,12 @@ export class QuorielDB extends ForgeExtension {
             EventManager.load("QuorielDBEvents", __dirname + "/events");
             client.events.load("QuorielDBEvents", this.options.events);
         }
-        await initDB(this.options?.path);
+        try {
+            await initDB(this.options?.path);
+        } catch (error) {
+            Logger.error(`[QuorielDB] Failed to initialize the database folder: ${(error as Error).message}`);
+            throw error;
+        }
         if (this.options?.events?.length) setupEvents(this.emitter, this.options.events);
     }
 }
@@ -75,6 +80,10 @@ export const {
     writeRecord,
     moveRecord,
     putRecord,
+    variableKey,
+    getVariable,
+    setVariable,
+    deleteVariable,
 
     createBackup,
     removeBackup,
@@ -83,3 +92,5 @@ export const {
     types,
     config
 } = functions;
+
+export type * from "./types";

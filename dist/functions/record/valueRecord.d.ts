@@ -1,5 +1,5 @@
-import { NativeFunction, ArgType } from "@tryforge/forgescript";
-declare const _default: NativeFunction<[{
+import { ArgType } from "@tryforge/forgescript";
+declare const _default: import("@tryforge/forgescript").NativeFunction<[{
     name: string;
     description: string;
     type: ArgType.String;
